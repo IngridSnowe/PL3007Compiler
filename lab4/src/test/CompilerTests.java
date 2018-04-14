@@ -201,7 +201,7 @@ public class CompilerTests {
 	}
 
 	@Test public void testNegation() {
-		runtest("module Test {" +
+	runtest("module Test {" +
 				"  public int f() {" +
 				"    return -42;" +
 				"  }" +
@@ -214,7 +214,7 @@ public class CompilerTests {
 	}
 	
 	//Test Expressions
-		@Test public void testNegInt() {
+	@Test public void testNegInt() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    return -42;" +
@@ -225,9 +225,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					-42);
-		}
+	}
 		
-		@Test public void testPosInt() {
+	@Test public void testPosInt() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    return 35;" +
@@ -238,10 +238,10 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					35);
-		}
+	}
 		
 		
-		@Test public void testString() {
+	@Test public void testString() {
 			runtest("module Test {" +
 					"  public String f() {" +
 					"    return \"good luck!\";" +
@@ -252,9 +252,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					"good luck!");
-		}
+	}
 		
-		@Test public void testBoolean() {
+	@Test public void testBoolean() {
 			runtest("module Test {" +
 					"  public boolean f() {" +
 					"    return false;" +
@@ -265,9 +265,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					false);
-		}
+	}
 		
-		@Test public void testArrayIndex() {
+	@Test public void testArrayIndex() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    int[] a;" + 
@@ -283,9 +283,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					10);
-		}
+	}
 		
-		@Test public void testAddExpr() {
+	@Test public void testAddExpr() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    return 1+4;" +
@@ -296,9 +296,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					5);
-		}
+	}
 		
-		@Test public void testSubExpr() {
+	@Test public void testSubExpr() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"	 int a;" +
@@ -313,9 +313,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					12);
-		}
+	}
 		
-		@Test public void testMulExpr() {
+	@Test public void testMulExpr() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    return 100*4;" +
@@ -326,9 +326,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					400);
-		}
+	}
 		
-		@Test public void testDivExpr() {
+	@Test public void testDivExpr() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    return -6/2;" +
@@ -339,9 +339,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					-3);
-		}
+	}
 		
-		@Test public void testModExpr() {
+	@Test public void testModExpr() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    return 5%2;" +
@@ -352,9 +352,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					1);
-		}
+	}
 		
-		@Test public void testWhileStatement() {
+	@Test public void testWhileStatement() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    int a;"+
@@ -373,9 +373,9 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					8);
-		}
+	}
 		
-		@Test public void testBreakStatement() {
+	@Test public void testBreakStatement() {
 			runtest("module Test {" +
 					"  public int f() {" +
 					"    int a;"+
@@ -392,7 +392,7 @@ public class CompilerTests {
 					new Class<?>[0],
 					new Object[0],
 					4);
-		}
+	}
 	
 
 }
