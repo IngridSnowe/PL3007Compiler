@@ -98,14 +98,16 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	@Override
 	public Value visitIntLiteral(IntLiteral nd) {
 		/* TODO: return something meaningful here */
-		return IntConstant.v(nd.getValue());
+		Value IntLiteral = IntConstant.v(nd.getValue().intValue());
+		return IntLiteral;
 	}
 	
 	/** Generate code for a string literal. */
 	@Override
 	public Value visitStringLiteral(StringLiteral nd) {
 		/* TODO: return something meaningful here */
-		return StringConstant.v(nd.getValue());
+		Value StringLiteral = StringConstant.v(nd.getValue());
+		return StringLiteral;
 	}
 	
 	/** Generate code for a Boolean literal. */
@@ -113,9 +115,13 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	public Value visitBooleanLiteral(BooleanLiteral nd) {
 		/* TODO: return something meaningful here (hint: translate 'true' to integer
 		 *       constant 1, 'false' to integer constant 0) */
-		return nd.getValue()==true?
-				IntConstant.v(1):
-					IntConstant.v(0);
+		Value BooleanLiteral;
+		if (nd.getValue())
+			BooleanLiteral = IntConstant.v(1);
+		else{
+			BooleanLiteral = IntConstant.v(0);
+		}
+		return BooleanLiteral;
 	}
 	
 	/** Generate code for an array literal. */
@@ -135,10 +141,13 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	/** Generate code for an array index expression. */
 	@Override
 	public Value visitArrayIndex(ArrayIndex nd) {
-		/* TODO: generate code for array index */
-		final Value base = wrap(nd.getBase().accept(this)),
-				index = wrap(nd.getIndex().accept(this));
-		return Jimple.v().newArrayRef(base,index);
+		/* TODO: generate code for array index */ 
+		Value base = this.wrap(nd.getBase().accept(this));
+		Value index = this.wrap(nd.getIndex().accept(this));
+		// new array index expression
+		// steffano say wrap
+		Value arrayIndex = this.wrap(Jimple.v().newArrayRef(base, index));
+		return arrayIndex;
 	}
 	
 	/** Generate code for a variable name. */
@@ -158,13 +167,13 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	/** Generate code for a binary expression. */
 	@Override
 	public Value visitBinaryExpr(BinaryExpr nd) {
-		/* TODO: generate code for binary expression here; you can either use a visitor
-		 *       to determine the type of binary expression you are dealing with, or
-		 *       generate code in the more specialised visitor methods visitAddExpr,
-		 *       visitSubExpr, etc., instead
+		/*
+		 * TODO: generate code for binary expression here; you can either use a
+		 * visitor to determine the type of binary expression you are dealing
+		 * with, or generate code in the more specialised visitor methods
+		 * visitAddExpr, visitSubExpr, etc., instead
 		 */
-		final Value left = wrap(nd.getLeft().accept(this)),
-				right = wrap(nd.getRight().accept(this));
+		final Value left = wrap(nd.getLeft().accept(this)), right = wrap(nd.getRight().accept(this));
 		Visitor<Value> binaryExVisitor = new Visitor<Value>(){
 			@Override
 			public Value visitAddExpr(AddExpr nd) {
@@ -240,7 +249,8 @@ public class ExprCodeGenerator extends Visitor<Value> {
 	@Override
 	public Value visitNegExpr(NegExpr nd) {
 		/* TODO: generate code for negation expression */
-		return Jimple.v().newNegExpr(wrap(nd.getOperand().accept(this)));
+		Value NegExpr = Jimple.v().newNegExpr(wrap(nd.getOperand().accept(this)));
+		return NegExpr;
 	}
 	
 	/** Generate code for a function call. */

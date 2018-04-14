@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import backend.ProgramCodeGenerator;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import lexer.Lexer;
 import parser.Parser;
 import soot.Printer;
