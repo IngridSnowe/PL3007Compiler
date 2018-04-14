@@ -238,8 +238,8 @@ public class CompilerTests {
 				new Class<?>[0],
 				new Object[0],
 				35);
-	}	
-		
+	}
+	
 	@Test public void testString() {
 		runtest("module Test {" +
 				"  public String f() {" +
